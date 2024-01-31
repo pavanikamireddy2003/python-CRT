@@ -1,0 +1,79 @@
+LINKED LIST :
+ PROBLEM STATEMENT :
+
+Write a Program to search an element from the list.
+CODE:
+
+class Node:
+    def __init__(self,data):
+        self.data=value
+        self.next=None
+class lis:
+    def __init__(self):
+        self.tail=self.head=None
+    def insert_end(self,data):
+        n=Node(data)
+        if self.head==None:
+            self.head=self.tail=n
+        else:
+            self.tail.next=n
+            self.tail=n
+    def show(self):
+        t=self.head
+        while t!=None:
+            print(t.data)
+            t=t.next
+    def search(self,ele):
+        t=self.head
+        while t!=None:
+            if t.data==ele:
+                return 1
+            t=t.next
+l=lis()
+while True:
+    value=int(input())
+    if value<0:
+        break
+    l.insert_end(value)
+ele=int(input())
+x=l.search(ele)
+if x==1:
+    print(ele ,"is present in the list")
+else:
+    print(ele ,"not present in the list")
+Sample Input 0
+
+1
+2
+3
+4
+-1
+3
+Sample Output 0
+
+3 is present in the list
+Sample Input 1
+
+1
+2
+3
+4
+5
+-1
+4
+Sample Output 1
+
+4 is present in the list
+Sample Input 2
+
+23
+11
+44
+53
+3
+56
+-1
+88
+Sample Output 2
+
+88 not present in the list
