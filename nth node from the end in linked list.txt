@@ -1,0 +1,66 @@
+LINKEDLIST 
+
+PROBLEM STATEMENT:
+Write a Program to find the nth node of a list from the end. If there is no nth node print "There is no nth node in the list", otherwise print the nth node element.
+CODE:
+
+class node:
+    def __init__(self,data):
+        self.data=data
+        self.left=None
+        self.right=None
+class double:
+    def __init__(self):
+        self.head=self.tail=None
+    def insert(self,data):
+        n=node(data)
+        if self.head==None:
+            self.head=self.tail=n
+        else:
+            self.tail.right=n
+            n.left=self.tail
+            self.tail=n
+    def btraverse(self,pos):
+        temp=self.tail
+        c=1
+        while temp.left!=None:
+            temp=temp.left
+            c=c+1
+            if c==pos:
+                return temp.data
+d=double()
+while True:
+    value=int(input())
+    if value<0:
+        break
+    d.insert(value)
+pos=int(input())
+x=d.btraverse(pos)
+if x:
+    print(x,"is the nth node element in the list")
+else:
+    print("There is no nth node in the list")
+
+
+Sample Input 0
+
+1
+2
+3
+4
+-1
+2
+Sample Output 0
+
+3 is the nth node element in the list
+Sample Input 1
+
+1
+2
+3
+4
+-1
+5
+Sample Output 1
+
+There is no nth node in the list
