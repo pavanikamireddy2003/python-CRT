@@ -1,0 +1,126 @@
+TREE-TRAVERSAL TECHNIQUES
+PROGRAM:
+         Traversing all the nodes ina binary search tree
+CODE:
+class Node:
+    def __init__(self,x):
+        self.data=x
+        self.left=None
+        self.right=None
+    def insert(self,x):
+        if self.data==None:
+            self.data=x
+            return
+        if self.data>x:
+            if self.left is None:
+                self.left=Node(x)
+            else:
+                self.left.insert(x)
+        else:
+            if self.right is None:
+                self.right=Node(x)
+            else:
+                self.right.insert(x)
+    def inorder(self):
+        if self.left:
+            self.left.inorder()
+        print(self.data,end=" ")
+        if self.right:
+            self.right.inorder()
+    def preorder(self):
+        print(self.data,end=" ")
+        if self.left:
+            self.left.preorder()
+        if self.right:
+            self.right.preorder()
+    def postorder(self):
+        if self.left:
+            self.left.preorder()
+        if self.right:
+            self.right.preorder()
+        print(self.data,end=" ")
+root=Node(30)
+while True:
+    print("1.insert\n2.inorder\n3.preorder\n4.postorder\n5.exit")
+    ch=int(input("enter your choice:"))
+    if ch==1:
+        x=int(input("enter element:"))
+        root.insert(x)
+    elif ch==2:
+        root.inorder()
+    elif ch==3:
+        root.preorder()
+    elif ch==4:
+        root.postorder()
+    elif ch==5:
+        break
+    else:
+        print("invalid choice")
+
+
+OUTPUT:
+1.insert
+2.inorder
+3.preorder
+4.postorder
+5.exit
+enter your choice:1
+enter element:4
+1.insert
+2.inorder
+3.preorder
+4.postorder
+5.exit
+enter your choice:1
+enter element:3
+1.insert
+2.inorder
+3.preorder
+4.postorder
+5.exit
+enter your choice:1
+enter element:3
+1.insert
+2.inorder
+3.preorder
+4.postorder
+5.exit
+enter your choice:1
+enter element:3
+1.insert
+2.inorder
+3.preorder
+4.postorder
+5.exit
+enter your choice:1
+enter element:8
+1.insert
+2.inorder
+3.preorder
+4.postorder
+5.exit
+enter your choice:1
+enter element:9
+1.insert
+2.inorder
+3.preorder
+4.postorder
+5.exit
+enter your choice:2
+3 3 3 4 8 9 30 1.insert
+2.inorder
+3.preorder
+4.postorder
+5.exit
+enter your choice:3
+30 4 3 3 3 8 9 1.insert
+2.inorder
+3.preorder
+4.postorder
+5.exit
+enter your choice:4
+4 3 3 3 8 9 30 1.insert
+2.inorder
+3.preorder
+4.postorder
+5.exit
