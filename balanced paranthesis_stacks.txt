@@ -1,0 +1,46 @@
+BALANCED PARANTHESIS
+
+PROBLEM STATEMENT: Write a program to check whether the given parenthesis is balanced or not.
+
+code:
+
+def valid(s):
+    a=[]
+    for x in s:
+        if x in "[{(":
+            a.append(x)
+        else:
+            if len(a)==0:
+                return False
+            r=a.pop()
+            if r=="(":
+                if x!=")":
+                    return False
+            elif r=="{":
+                if x!="}":
+                    return False
+            elif r=="[":
+                if x!="]":
+                    return False
+    if a:
+        return False
+    return True
+s=input()
+if valid(s):
+    print("Balanced")
+else:
+    print("Not Balanced")
+
+
+Sample Input 0
+
+{()}[]
+Sample Output 0
+
+Balanced
+Sample Input 1
+
+{{}(})
+Sample Output 1
+
+Not Balanced
