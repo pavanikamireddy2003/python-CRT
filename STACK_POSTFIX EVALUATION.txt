@@ -1,0 +1,33 @@
+STACK_POSTFIX EVALUATION
+
+PROGRAM:
+Write a Program to evaluate the given expression and display the answer
+
+CODE:
+def evaluate(x,a,b):
+    if x=="+":
+        return a+b
+    if x=="-":
+        return a-b
+    if x=="*":
+        return a*b
+    if x=="/":
+        return a/b
+s=input()
+op=[]
+for x in s:
+    if x.isalnum():
+        op.append(x)
+    else:
+        b=int(op.pop())
+        a=int(op.pop())
+        res=evaluate(x,a,b)
+        op.append(res)
+print(int(op[-1]))
+
+
+INPUT:
+56+7-
+
+OUTPUT:
+4
