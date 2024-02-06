@@ -1,0 +1,72 @@
+problem :
+
+Write a program to sum all the elements in the tree.
+
+code :
+
+class node:
+    def __init__(self,x):
+        self.data=x
+        self.left=None
+        self.right=None
+    def insert(self,x):
+        if self.data==None:
+            self.data=x
+            return
+        if self.data>x:
+            if self.left==None:
+                self.left=node(x)
+            else:
+                self.left.insert(x)
+        else:
+            if self.right==None:
+                self.right=node(x)
+            else:
+                self.right.insert(x)
+    def levelorder(self):
+        sum=0
+        queue=[]
+        queue.append(n)
+        while queue:
+            x=queue.pop(0)
+            sum=sum+x.data
+            if x.left!=None:
+                queue.append(x.left)
+            if x.right!=None:
+                queue.append(x.right)
+        return sum
+v=int(input())
+n=node(v)
+while True:
+    v=int(input())
+    if v<0:
+        break
+    n.insert(v)
+x=n.levelorder()
+print("Sum of all nodes are",x)
+
+
+OUTPUT:
+
+Sample Input 0
+
+6
+3
+1
+4
+2
+-1
+Sample Output 0
+
+Sum of all nodes are 16
+Sample Input 1
+
+1
+2
+3
+4
+5
+-1
+Sample Output 1
+
+Sum of all nodes are 15
