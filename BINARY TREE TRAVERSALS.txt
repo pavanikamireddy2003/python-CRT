@@ -1,0 +1,67 @@
+BINARY TREE TRAVERSALS
+
+PROGRAM:
+Write a program to insert nodes in a binary search tree and traverse it in all three types of traversals.
+
+
+CODE:
+class node:
+    def __init__(self,x):
+        self.data=x
+        self.left=None
+        self.right=None
+    def insert(self,x):
+        if self.data==None:
+            self.data=x
+            return
+        if self.data>x:
+            if self.left==None:
+                self.left=node(x)
+            else:
+                self.left.insert(x)
+        else:
+            if self.right==None:
+                self.right=node(x)
+            else:
+                self.right.insert(x)
+    def preorder(self):
+        print(self.data,end=" ")
+        if self.left:
+            self.left.preorder()
+        if self.right:
+            self.right.preorder()
+    def inorder(self):
+        if self.left:
+            self.left.inorder()
+        print(self.data,end=" ")
+        if self.right:
+            self.right.inorder()
+    def postorder(self):
+        if self.left:
+            self.left.postorder()
+        if self.right:
+            self.right.postorder()
+        print(self.data,end=" ")
+m=int(input())
+v=list(map(int,input().split()))[:m]
+n=node(v[0])
+for i in range(1,m):
+    if v[i]<0:
+        break
+    n.insert(v[i])
+print("In-Order Traversal:",end=" ")
+n.inorder()
+print("\nPre-Order Traversal:",end=" ")
+n.preorder()
+print("\nPost-Order Traversal:",end=" ")
+n.postorder()
+
+
+INPUT:
+7
+8 4 12 1 5 9 13
+
+OUTPUT:
+In-Order Traversal: 1 4 5 8 9 12 13
+Pre-Order Traversal: 8 4 1 5 12 9 13
+Post-Order Traversal: 1 5 4 9 13 12 8
